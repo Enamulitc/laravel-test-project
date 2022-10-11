@@ -55,4 +55,9 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > app-test.pem && chmod 600 app-test.pem
-          ssh -o StrictHostKeyChecking=no -i "app-test.pem" ${USER_NAME}@${HOSTNAME}
+          ssh -o StrictHostKeyChecking=no -i "app-test.pem" ${USER_NAME}@${HOSTNAME} '
+          cd /var/www/html/laravel-cicd/laravel-test-project &&
+            git checkout dev-ci &&
+            git fetch --all &&
+            git reset --hard origin/dev-ci &&
+            git pull origin dev-ci '
