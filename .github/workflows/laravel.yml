@@ -33,3 +33,5 @@ jobs:
     #    DB_CONNECTION: sqlite
      #   DB_DATABASE: database/database.sqlite
       #run: vendor/bin/phpunit
+    - name: Login to Deployment Server
+      run: sshpass -e ssh -o StrictHostKeyChecking=no ubuntu@54.169.39.205 "pwd" 
