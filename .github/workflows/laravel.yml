@@ -55,4 +55,4 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > app-test.pem && chmod 600 app-test.pem
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i app-test.pem ${USER_NAME}@${HOSTNAME} '
